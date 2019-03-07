@@ -17,96 +17,123 @@
         crossorigin="anonymous"></script>
     <!-- css style file -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>survey</title>
 </head>
 
 <body>
-    <h1>This is a test</h1>
-    <form action="">
-        <div>
-            <p>name</p>
-            <input type="text" id="name-input">
-            <p>photo</p>
-            <input id="photo-input" type="text" placeholder="URL only please">
+
+    <div class="container justify-content-center">
+        <h1>Please answer the question below!</h1>
+        <div class="jumbotron col-8 center">
+            <form class="col-8">
+                <div class="form-group">
+                    <h2>NAME</h2>
+                    <input type="text" id="name-input" class="form-control">
+                    <h2>Photo</h2>
+                    <input id="photo-input" class="form-control" type="text" placeholder="URL only please">
+                </div>
+                <div>
+                    <div id="first-question-div" class="form-group">
+                        <p>1. how hot you like your pizza?</p>
+                        <select name="" class="questions form-control" id="first-question">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div id="second-question-div" class="form-group">
+                        <p>2. how many slices can you eat?</p>
+                        <select name="" class="questions form-control" id="second-question">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <div id="third-question-div" class="form-group">
+                        <p>3. how often do you eat pizza?</p>
+                        <select name="" class="questions form-control" id="third-question">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <div id="fourth-question-div" class="form-group">
+                        <p>4. how often do you share your pizza?</p>
+                        <select name="" class="questions form-control" id="fourth-question">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <div id="fifth-question-div" class="form-group">
+                        <p>5. Do you like veggie pizza?</p>
+                        <select name="" class="questions form-control" id="fifth-question">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button id="submit-data" class="btn btn-primary" data-target="#my-modal"
+                    data-toggle="modal">Submit</button>
+                <button id="post-it" class="btn btn-success">Save it</button>
+            </form>
         </div>
-        <div>
-            <div id="first-question-div">
-                <p>1. how hot you like your pizza?</p>
-                <select name="" class="questions" id="first-question">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+    </div>
+
+    <div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="my-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-photo">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="reload()">Close</button>
+                </div>
             </div>
-            <div id="second-question-div">
-                <p>1. how many slices can you eat?</p>
-                <select name="" class="questions" id="second-question">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-
-            <div id="third-question-div">
-                <p>1. how often do you eat pizza?</p>
-                <select name="" class="questions" id="third-question">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-
-            <div id="fourth-question-div">
-                <p>1. how often do you share your pizza?</p>
-                <select name="" class="questions" id="fourth-question">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-
-            <div id="fifth-question-div">
-                <p>1. how often do you eat pizza with friends?</p>
-                <select name="" class="questions" id="fifth-question">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-
-
-
         </div>
-
-        <button id="submit-data">submit</button>
-    </form>
+    </div>
 </body>
 
 <script>
-    var results = [];
-    var friend = [];
-    var total2 = [];
-    var a = [];
-    var scoreSumValue2;
+
+
+    var friend = []
+    var r;
+    var x;
+    var totals = []
+    var minValue;
+
     function myFriend() {
         $.ajax({
             url: "/api/friendList",
             method: "GET"
         })
             .then(function (results) {
-                //console.log(results);
-                //__________________________________________________//
-                var i;
+
+                console.log(results);
                 for (i = 0; i < results.length; i++) {
 
                     a = friend.answers;
@@ -129,41 +156,61 @@
 
                     })
                     //to push the results to each user in API and current friend
-
+                    console.log("this is " + x);
                     var score1 = results[i].score;
-                    var total = friend.score;
-                    total.push(x);
                     score1.push(x);
-                    total2.push(x);
-                    //console.log(x);
-                    //console.log(total);
-                    //test.score = x;
-                    console.log(results);
-                    //console.log(total2);
-                    console.log(a);
-                    //______________________________________________________//
-                    //function to get getTotalScore2() {
-                        var matchScore = results[i].answers;
+                    friend.score.push(x);
+
+
+                    console.log("this is the test" + friend.answers);
+
+
+                    function scoreSum2() {
+                        var matchScore1 = results[i].score[0];
                         function getSum(total, num) {
                             return total + num;
                         }
-                        scoreSumValue2 = matchScore.reduce(getSum);
-                        console.log(scoreSumValue2);
-                    
-                    //_____________________________________________________//     
+                        var scoreSumValue2 = matchScore1.reduce(getSum);
+                        r = results[i].number;
+                        r.push(scoreSumValue2);
+                        totals.push(scoreSumValue2);
+
+                        console.log("this is number from API" + scoreSumValue2);
+
                     }
+                    scoreSum2();
+                    console.log("this is the total array : " + totals);
+                    //var total2 = parseInt(totals);
+                    minValue = Math.min(...totals);
 
-                    //_________________________________________________//  
 
-                })
+                    console.log(results);
+                    console.log("this is number from api loop  " + results[i].number);
+                    var myMatch = results.filter(function (myMatch) {
+                        return myMatch.number == minValue;
+                    })
+                    $("#my-header").empty();
+                    $("#modal-photo").empty();
+                    var myName = $("<h2>");
+                    myName.text(myMatch[0].name);
+                    $("#my-header").append(myName);
+                    console.log(myMatch[0].photo);
+
+                    $("#modal-photo").append("<img src=' " + myMatch[0].photo + "'/>")
+
+                }
+
+
+
+            })
+
 
     }
 
-
     //to post user in API
     $("#submit-data").on("click", function (event) {
+
         event.preventDefault();
-        //var friend = $("#name-input").val().trim();
         var value1 = $("#first-question").val().trim();
         var value2 = $("#second-question").val().trim();
         var value3 = $("#third-question").val().trim();
@@ -173,46 +220,60 @@
             name: $("#name-input").val().trim(),
             photo: $("#photo-input").val().trim(),
             answers: [Number(value1), Number(value2), Number(value3), Number(value4), Number(value5)],
-            score: []
-        };
+            score: [],
+            number: []
+        }
+        myFriend();
+        getTotalScore1();
+    })
+    $("#post-it").on("click", function (event) {
+        event.preventDefault();
+        var value1 = $("#first-question").val().trim();
+        var value2 = $("#second-question").val().trim();
+        var value3 = $("#third-question").val().trim();
+        var value4 = $("#fourth-question").val().trim();
+        var value5 = $("#fifth-question").val().trim();
+        var newValue = {
+            name: $("#name-input").val().trim(),
+            photo: $("#photo-input").val().trim(),
+            answers: [Number(value1), Number(value2), Number(value3), Number(value4), Number(value5)],
+            score: [],
+            number: []
+        }
 
-
-
-        //____________________________________________________________________//
-
-        //___________________________________________________________________//
-        //to clear input field
-
-        $.post("/api/friendList", friend,
-            function (data) {
-
+        $.post("/api/friendList", newValue,
+            function () {
                 $("#name-input").val("");
                 $("#photo-input").val("");
                 $("#first-question").val("");
                 $("#second-question").val("");
                 $("#third-question").val("");
-            })
-
-        //run function to get API results
-        myFriend(getTotalScore2);
-        //__________________________________________//
-
-        //function to sum values in array
-        getTotalScore1()
-
-        // a = friend.answers;
-        // function getSum(total, num) {
-        //     return total + num;
-        // }
-        // var scoreSumValue = a.reduce(getSum);
-        // console.log(scoreSumValue);
-
-        //______________________________________________________//
-
+                $("#fourth-question").val("");
+                $("#fifth-question").val("");
+            }
+        )
+        //console.log("this is the smallest number : " + minValue);
 
     })
+    function notNullTest() {
+        
+          var  valueName = $("#name-input").val();
+           var valuePhoto = $("#photo-input").val();
+           var value1 = $("#first-question").val();
+           var value2 = $("#second-question").val();
+           var value3 = $("#third-question").val();
+           var value4 = $("#fourth-question").val();
+            var value5 = $("#fifth-question").val();
 
+    
+        if (valueName || valuePhoto || value1 || value2 || value3 || value4 || value5 == null) {
+            alert("please fill all the entries!");
+            reload();
+        }
 
+    }
+
+    //function to sum values in  friend array
     function getTotalScore1() {
         var myScore = friend.answers;
         function getSum(total, num) {
@@ -223,17 +284,9 @@
 
     }
 
-    function getTotalScore2() {
-        var matchScore = results[i].answers;
-        function getSum(total, num) {
-            return total + num;
-        }
-        var scoreSumValue2 = matchScore.reduce(getSum);
-        console.log(scoreSumValue2);
-
+    function reload() {
+        location.reload();
     }
-
-
 </script>
 
 </html>
