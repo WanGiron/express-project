@@ -24,7 +24,7 @@
 <body>
 
     <div class="container justify-content-center">
-        <h1 class="main-header text-center">Please answer the question below!</h1>
+        <h1 class="main-header text-center">Please answer the questions below!</h1>
         <div class="row">
             <div class="col-2"></div>
             <div class="jumbotron col-8">
@@ -72,7 +72,7 @@
                         </div>
 
                         <div id="fourth-question-div" class="form-group">
-                            <p>4. Do you like cheese pizza? (1 being you not so much and 5 you love it)</p>
+                            <p>4. Do you like cheese pizza? (1 being not so much and 5 being you love it)</p>
                             <select name="" class="questions form-control" id="fourth-question">
                                 <option aria-placeholder="select">Select a number</option>
                                 <option value="1">1</option>
@@ -84,7 +84,7 @@
                         </div>
 
                         <div id="fifth-question-div" class="form-group">
-                            <p>5. Do you like pineapple on your pizza? (1 being you not so much and 5 you love it)</p>
+                            <p>5. Do you like pineapple on your pizza? (1 being not so much and 5 being you love it)</p>
                             <select name="" class="questions form-control" id="fifth-question">
                                 <option aria-placeholder="select">Select a number</option>
                                 <option value="1">1</option>
@@ -95,11 +95,25 @@
                             </select>
                         </div>
 
-                    </div>
+                        <div id="sixth-question-div" class="form-group">
+                                <p>6. Do you like hot peppers on your pizza? (1 being not so much and 5 being you love it)</p>
+                                <select name="" class="questions form-control" id="sixth-question">
+                                    <option aria-placeholder="select">Select a number</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
 
+                    </div>
+<br>
                     <button id="submit-data" class="btn btn-primary" data-target="#my-modal"
                         data-toggle="modal">Submit</button>
                     <button id="post-it" class="btn btn-success">Save it</button>
+                    <br>
+                    <p class="text-center">Developed by William Navas 2019</p>
                 </form>
             </div>
             <div class="col-2"></div>
@@ -230,10 +244,11 @@
         var value3 = $("#third-question").val().trim();
         var value4 = $("#fourth-question").val().trim();
         var value5 = $("#fifth-question").val().trim();
+        var value6 = $("#sixth-question").val().trim();
         friend = {
             name: $("#name-input").val().trim(),
             photo: $("#photo-input").val().trim(),
-            answers: [Number(value1), Number(value2), Number(value3), Number(value4), Number(value5)],
+            answers: [Number(value1), Number(value2), Number(value3), Number(value4), Number(value5), Number(value6) ],
             score: [],
             number: []
         }
@@ -248,10 +263,11 @@
         var value3 = $("#third-question").val().trim();
         var value4 = $("#fourth-question").val().trim();
         var value5 = $("#fifth-question").val().trim();
+        var value6 = $("#sixth-question").val().trim();
          newValue = {
             name: $("#name-input").val().trim(),
             photo: $("#photo-input").val().trim(),
-            answers: [Number(value1), Number(value2), Number(value3), Number(value4), Number(value5)],
+            answers: [Number(value1), Number(value2), Number(value3), Number(value4), Number(value5), Number(value6)],
             score: [],
             number: []
         }
@@ -271,23 +287,6 @@
         //console.log("this is the smallest number : " + minValue);
 
     })
-    function notNullTest() {
-
-        var valueName = $("#name-input").val();
-        var valuePhoto = $("#photo-input").val();
-        var value1 = $("#first-question").val();
-        var value2 = $("#second-question").val();
-        var value3 = $("#third-question").val();
-        var value4 = $("#fourth-question").val();
-        var value5 = $("#fifth-question").val();
-
-
-        if (valueName || valuePhoto || value1 || value2 || value3 || value4 || value5 == "") {
-            alert("please fill all the entries!");
-            reload();
-        }
-
-    }
 
     //function to sum values in  friend array
     function getTotalScore1() {

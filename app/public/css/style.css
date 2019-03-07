@@ -10,11 +10,11 @@
 }
 
 .header-class{
+    color: red; 
     text-align: center;
     width: fit-content;
     border: solid black 1px;
 }
 
-body{
-    background-color: red;
-}
+
+
