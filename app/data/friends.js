@@ -33,6 +33,13 @@ var friends = [
         answers : [ 5,4,1,5,5],
         score : [],
         number : []
+    },
+    {
+        name : "Pikachu",
+        photo : "https://media.giphy.com/media/U2nN0ridM4lXy/giphy.gif",
+        answers : [ 5,3,2,5,4],
+        score : [],
+        number : []
     }
 
 ];

@@ -5,7 +5,7 @@
     <!-- jQuery file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- reset css file -->
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
     <!-- bootstrap link -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -17,83 +17,92 @@
         crossorigin="anonymous"></script>
     <!-- css style file -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet"  type="text/css" href="css/style.css">
     <title>survey</title>
 </head>
 
 <body>
 
     <div class="container justify-content-center">
-        <h1>Please answer the question below!</h1>
-        <div class="jumbotron col-8 center">
-            <form class="col-8">
-                <div class="form-group">
-                    <h2>NAME</h2>
-                    <input type="text" id="name-input" class="form-control">
-                    <h2>Photo</h2>
-                    <input id="photo-input" class="form-control" type="text" placeholder="URL only please">
-                </div>
-                <div>
-                    <div id="first-question-div" class="form-group">
-                        <p>1. how hot you like your pizza?</p>
-                        <select name="" class="questions form-control" id="first-question">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+        <h1 class="main-header text-center">Please answer the question below!</h1>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="jumbotron col-8">
+                <form class="">
+                    <div class="form-group">
+                        <h2>Name</h2>
+                        <input type="text" id="name-input" class="form-control" placeholder="Please type your name">
+                        <h2>Photo</h2>
+                        <input id="photo-input" class="form-control" type="text" placeholder="URL only please">
                     </div>
-                    <div id="second-question-div" class="form-group">
-                        <p>2. how many slices can you eat?</p>
-                        <select name="" class="questions form-control" id="second-question">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                    <div>
+                        <div id="first-question-div" class="form-group">
+                            <p>1. How hot do you like your pizza? (1 being cold and 5 being super hot)</p>
+                            <select name="" class="questions form-control" id="first-question">
+                                <option aria-placeholder="select">Select a number</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div id="second-question-div" class="form-group">
+                            <p>2. how many slices can you eat?</p>
+                            <select name="" class="questions form-control" id="second-question">
+                                <option aria-placeholder="select">Select a number</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+
+                        <div id="third-question-div" class="form-group">
+                            <p>3. How often do you eat pizza? (1 being monthly and 5 being daily)</p>
+                            <select name="" class="questions form-control" id="third-question">
+                                <option aria-placeholder="select">Select a number</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+
+                        <div id="fourth-question-div" class="form-group">
+                            <p>4. Do you like cheese pizza? (1 being you not so much and 5 you love it)</p>
+                            <select name="" class="questions form-control" id="fourth-question">
+                                <option aria-placeholder="select">Select a number</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+
+                        <div id="fifth-question-div" class="form-group">
+                            <p>5. Do you like pineapple on your pizza? (1 being you not so much and 5 you love it)</p>
+                            <select name="" class="questions form-control" id="fifth-question">
+                                <option aria-placeholder="select">Select a number</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+
                     </div>
 
-                    <div id="third-question-div" class="form-group">
-                        <p>3. how often do you eat pizza?</p>
-                        <select name="" class="questions form-control" id="third-question">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-
-                    <div id="fourth-question-div" class="form-group">
-                        <p>4. how often do you share your pizza?</p>
-                        <select name="" class="questions form-control" id="fourth-question">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-
-                    <div id="fifth-question-div" class="form-group">
-                        <p>5. Do you like veggie pizza?</p>
-                        <select name="" class="questions form-control" id="fifth-question">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <button id="submit-data" class="btn btn-primary" data-target="#my-modal"
-                    data-toggle="modal">Submit</button>
-                <button id="post-it" class="btn btn-success">Save it</button>
-            </form>
+                    <button id="submit-data" class="btn btn-primary" data-target="#my-modal"
+                        data-toggle="modal">Submit</button>
+                    <button id="post-it" class="btn btn-success">Save it</button>
+                </form>
+            </div>
+            <div class="col-2"></div>
         </div>
     </div>
 
@@ -114,8 +123,10 @@
                 </div>
             </div>
         </div>
+
     </div>
 </body>
+
 
 <script>
 
@@ -125,6 +136,7 @@
     var x;
     var totals = []
     var minValue;
+    var newValue = []
 
     function myFriend() {
         $.ajax({
@@ -162,6 +174,7 @@
                     friend.score.push(x);
 
 
+
                     console.log("this is the test" + friend.answers);
 
 
@@ -174,6 +187,7 @@
                         r = results[i].number;
                         r.push(scoreSumValue2);
                         totals.push(scoreSumValue2);
+        
 
                         console.log("this is number from API" + scoreSumValue2);
 
@@ -196,7 +210,7 @@
                     $("#my-header").append(myName);
                     console.log(myMatch[0].photo);
 
-                    $("#modal-photo").append("<img src=' " + myMatch[0].photo + "'/>")
+                    $("#modal-photo").append("<img style = 'width : 460px' src=' " + myMatch[0].photo + "'/>")
 
                 }
 
@@ -225,6 +239,7 @@
         }
         myFriend();
         getTotalScore1();
+        
     })
     $("#post-it").on("click", function (event) {
         event.preventDefault();
@@ -233,7 +248,7 @@
         var value3 = $("#third-question").val().trim();
         var value4 = $("#fourth-question").val().trim();
         var value5 = $("#fifth-question").val().trim();
-        var newValue = {
+         newValue = {
             name: $("#name-input").val().trim(),
             photo: $("#photo-input").val().trim(),
             answers: [Number(value1), Number(value2), Number(value3), Number(value4), Number(value5)],
@@ -252,21 +267,22 @@
                 $("#fifth-question").val("");
             }
         )
+        reload();
         //console.log("this is the smallest number : " + minValue);
 
     })
     function notNullTest() {
-        
-          var  valueName = $("#name-input").val();
-           var valuePhoto = $("#photo-input").val();
-           var value1 = $("#first-question").val();
-           var value2 = $("#second-question").val();
-           var value3 = $("#third-question").val();
-           var value4 = $("#fourth-question").val();
-            var value5 = $("#fifth-question").val();
 
-    
-        if (valueName || valuePhoto || value1 || value2 || value3 || value4 || value5 == null) {
+        var valueName = $("#name-input").val();
+        var valuePhoto = $("#photo-input").val();
+        var value1 = $("#first-question").val();
+        var value2 = $("#second-question").val();
+        var value3 = $("#third-question").val();
+        var value4 = $("#fourth-question").val();
+        var value5 = $("#fifth-question").val();
+
+
+        if (valueName || valuePhoto || value1 || value2 || value3 || value4 || value5 == "") {
             alert("please fill all the entries!");
             reload();
         }
