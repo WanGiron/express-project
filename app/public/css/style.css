@@ -1,6 +1,8 @@
 
 body{
     background-image: url("pizza.jpg");
+    background-attachment: fixed;   
+    
 }
 .header-class{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -11,6 +13,13 @@ body{
 .jumbotron {
     background: rgba(49, 49, 49, 0.7);
     color: rgb(189, 189, 189);
+}
+
+.main-header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(233, 233, 233); 
+    margin-top: 20px;  
+    font-size:50px;  
 }
 
 
