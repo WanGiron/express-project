@@ -9,7 +9,7 @@ module.exports = function (app) {
     });
 
     app.post("/api/friendList", function (req, res) {
-        
+
         // To get numbers from answers //
         req.body.answers = req.body.answers.map(a => Number(a));
 
@@ -70,9 +70,6 @@ module.exports = function (app) {
             var myMatch = results.filter(function (myMatch) {
                 return myMatch.number == minValue;
             })
-
-
-
 
             //Appending data to modal//
             var matchFriend = {
