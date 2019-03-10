@@ -1,6 +1,6 @@
 var friends = [
     {
-        name : "Ralphael",
+        name : "Raphael",
         photo : "https://media.giphy.com/media/13DC3spQuglRFC/giphy.gif",
         answers : [ 1,2,3,4,5,2],
         score:[],

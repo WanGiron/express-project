@@ -31,9 +31,11 @@
                 <form class="">
                     <div class="form-group">
                         <h2>Name</h2>
-                        <input type="text" id="name-input" class="form-control" placeholder="Please type your name">
+                        <input type="text" id="name-input" class="form-control questions"
+                            placeholder="Please type your name">
                         <h2>Photo</h2>
-                        <input id="photo-input" class="form-control" type="text" placeholder="URL only please">
+                        <input id="photo-input" class="form-control questions" type="text"
+                            placeholder="URL only please">
                     </div>
                     <br>
                     <hr>
@@ -118,15 +120,18 @@
                     </div>
                     <br>
                     <hr>
-                    <button id="submit-data" class="btn btn-primary" data-target="#my-modal"
+                    <div class="text-center"> 
+                    <button id="submit-data" class="btn btn-primary text-center" data-target="#my-modal"
                         data-toggle="modal">Submit</button>
-                    <button id="post-it" class="btn btn-success">Save it</button>
+                        </div>
                     <br>
                     <hr>
                     <p class="text-center">Developed by William Navas 2019</p>
+                    <p class="text-center"><a class="link" href="/api/friendList">API Friend List Link</a></p>
                 </form>
             </div>
             <div class="col-2"></div>
+
         </div>
     </div>
 
@@ -142,9 +147,9 @@
                 <div class="modal-body" id="modal-photo">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        onclick="reload()">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reload()">Close</button>
                 </div>
+
             </div>
         </div>
 
@@ -155,119 +160,58 @@
 <script>
 
 
-    var friend = []
-    var r;
-    var x;
-    var totals = []
-    var minValue;
-    var newValue = []
-//this function calcalates the math between all objects from API and our current object also we do the GET method//
-    function myFriend() {
-        $.ajax({
-            url: "/api/friendList",
-            method: "GET"
-        })
-            .then(function (results) {
-
-                console.log(results);
-                for (i = 0; i < results.length; i++) {
-
-                    a = friend.answers;
-                    b = results[i].answers;
-
-                    var x = a.map(function (item, index) {
-                        if (item > b[index]) {
-                            var y = item;
-                        }
-                        else {
-                            y = b[index];
-                        }
-                        if (b[index] < item) {
-                            var z = b[index];
-                        }
-                        else {
-                            z = item;
-                        }
-                        return y - z;
-
-                    })
-                    //to push the results to each user in API and current friend
-                    console.log("this is " + x);
-                    var score1 = results[i].score;
-                    score1.push(x);
-                    friend.score.push(x);
-
-
-
-                    console.log("this is the test" + friend.answers);
-
-                    //here we create function that creates score for the objects from API
-                    function scoreSum2() {
-                        var matchScore1 = results[i].score[0];
-                        function getSum(total, num) {
-                            return total + num;
-                        }
-
-                        var scoreSumValue2 = matchScore1.reduce(getSum);
-                        r = results[i].number;
-                        r.push(scoreSumValue2);
-                        totals.push(scoreSumValue2);
-                        console.log("this is number from API" + scoreSumValue2);
-
-                    }
-                    //here we run function that creates score for the objects from API
-                    scoreSum2();
-                    console.log("this is the total array : " + totals);
-                    minValue = Math.min(...totals);
-
-
-                    console.log(results);
-                    console.log("this is number from api loop  " + results[i].number);
-                    //Here we return object with matching total number 
-                    var myMatch = results.filter(function (myMatch) {
-                        return myMatch.number == minValue;
-                    })
-                    //Appending data to modal//
-                    $("#my-header").empty();
-                    $("#modal-photo").empty();
-                    var myName = $("<h2>");
-                    myName.text(myMatch[0].name + " is your match!");
-                    $("#my-header").append(myName);
-                    console.log(myMatch[0].photo);
-
-                    $("#modal-photo").append("<img style = 'width : 460px' src=' " + myMatch[0].photo + "'/>")
-
-                }
-
-
-
-            })
-
-
-    }
-
-    //This function creates current object to compare with objects in API
+    //This function creates current object and send it to API with POST method
     $("#submit-data").on("click", function (event) {
 
         event.preventDefault();
-        var value1 = $("#first-question").val().trim();
-        var value2 = $("#second-question").val().trim();
-        var value3 = $("#third-question").val().trim();
-        var value4 = $("#fourth-question").val().trim();
-        var value5 = $("#fifth-question").val().trim();
-        var value6 = $("#sixth-question").val().trim();
-        friend = {
-            name: $("#name-input").val().trim(),
-            photo: $("#photo-input").val().trim(),
-            answers: [Number(value1), Number(value2), Number(value3), Number(value4), Number(value5), Number(value6)],
-            score: [],
-            number: []
+        // To validate inputs //
+        function validateForm() {
+            var isValid = true;
+            $(".questions").each(function () {
+                if ($(this).val() === "") {
+                    isValid = false;
+                }
+            });
+            return isValid;
         }
-        // Calling functions to calculate best match
-        myFriend();
-        getTotalScore1();
+        // If validate true run function // 
+        if (validateForm()) {
+            // Getting user values from inputs // 
+            var value1 = $("#first-question").val().trim();
+            var value2 = $("#second-question").val().trim();
+            var value3 = $("#third-question").val().trim();
+            var value4 = $("#fourth-question").val().trim();
+            var value5 = $("#fifth-question").val().trim();
+            var value6 = $("#sixth-question").val().trim();
+            //Creating the object to be sent to API //
+            friend = {
+                name: $("#name-input").val().trim(),
+                photo: $("#photo-input").val().trim(),
+                answers: [Number(value1), Number(value2), Number(value3), Number(value4), Number(value5), Number(value6)],
+                score: [],
+                number: []
+            }
 
+            // POST method //
+            $.post("/api/friendList", friend, function (data) {
+                console.log("this is from API " + JSON.stringify(data));
+            // To Clear the modal so we can append new values//
+                $("#my-header").empty();
+                $("#modal-photo").empty();
+            // Appending values for matching friend to modal //
+                var myName = $("<h2>");
+                myName.text(data.name + " is your match!");
+                $("#my-header").append(myName);
+                $("#modal-photo").append("<img style = 'width : 460px' src=' " + data.photo + "'/>")
+            })
+        }
+        // If validation false we alert the user//
+        else {
+            alert("Please fill all entries!")
+            reload();
+        }
     })
+
     //this function is to post new object to API
     $("#post-it").on("click", function (event) {
         event.preventDefault();
@@ -284,30 +228,14 @@
             score: [],
             number: []
         }
-
-        $.post("/api/friendList", newValue,
-          
-        )
-        reload();
-        //console.log("this is the smallest number : " + minValue);
     })
 
-    //function to sum values in  friend array
-    function getTotalScore1() {
-        var myScore = friend.answers;
-        function getSum(total, num) {
-            return total + num;
-        }
-        var scoreSumValue = myScore.reduce(getSum);
-        console.log(scoreSumValue);
 
-    }
-
+    // to reaload page //
     function reload() {
         location.reload();
     }
 
-    //function
 </script>
 
 </html>
